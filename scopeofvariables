@@ -1,0 +1,19 @@
+public class VariableScopeExample {
+    private static int x = 1; // Class variable accessible in the whole class
+    
+    public static void main(String[] args) {
+        VariableScopeExample example = new VariableScopeExample(); // Create an instance of VariableScopeExample to access its non-static members
+        int y = 5; // Local variable to main method
+        System.out.println("Class variable x: " + x);
+        System.out.println("Local variable y: " + y);
+        example.someMethod(); // Call someMethod() using the instance
+    }
+
+    int y = 5; // This is not recommended. It's better to declare variables closer to where they are used.
+
+    public void someMethod() { // Changed method signature to non-static
+        System.out.println("Class variable x from someMethod: " + x);
+        // System.out.println("Local variable y from some Method " + y); // This line is commented out because y is not accessible here
+        // To access y here, you would need to pass it as a parameter or make y an instance variable
+    }
+}
